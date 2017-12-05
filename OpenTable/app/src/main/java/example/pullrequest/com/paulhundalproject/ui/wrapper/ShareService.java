@@ -27,8 +27,6 @@ public class ShareService implements IShareServiceWrapper {
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, SUBJECT);
         emailIntent.putExtra(Intent.EXTRA_TEXT, emailBody);
-        if (emailIntent.resolveActivity(context.getPackageManager()) != null) {
-            context.startActivity(emailIntent);
-        }
+        context.startActivity(Intent.createChooser(emailIntent, "Send email.."));
     }
 }
