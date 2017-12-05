@@ -62,4 +62,6 @@ update the adapter to have a method that takes in addAll() to add multiple new
 entries on each update.
 
 
-
+Bonus Feature: Sharing
+Allow the user to share each movie review through email by clicking on the 
+Share button on each item.
