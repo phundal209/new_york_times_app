@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_marginStart="4dp"
+    android:layout_marginEnd="4dp"
+    android:layout_marginBottom="4dp"
+    android:layout_marginTop="4dp">
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        card_view:cardCornerRadius="4dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/headline"
+                android:ellipsize="end"
+                android:textStyle="bold"
+                tools:text="Review: The Shape of Water Is Altogether Wonderful"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/headline"
+                android:layout_marginTop="10dp"
+                android:id="@+id/displayTitle"
+                tools:text="Movie title : The Hangover"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/displayTitle"
+                android:id="@+id/displayRating"
+                tools:text="Rated R"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:id="@+id/movieByline"
+                tools:text="Reviewed by A.O. SCOTT"
+                android:layout_below="@+id/displayRating"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/movieByline"
+                android:id="@+id/publicationDate"
+                tools:text="Date of publication: 2017-11-30"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/publicationDate"
+                android:layout_marginTop="5dp"
+                android:id="@+id/summaryShort"
+                tools:text="Short Summary : Aki Kaurismaki bittersweet tale of displacement and solidarity has the feel (and anti-authoritarian politics) of a 1930s movie."
+                android:maxLines="4"
+                android:lineSpacingExtra="2dp"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autoLink="web"
+                android:id="@+id/link"
+                tools:text="Read the New York Times Review of Big Time"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/summaryShort"
+                android:textColor="@color/green"/>
+            
+            <ImageView
+                android:layout_width="210dp"
+                android:layout_height="140dp"
+                android:id="@+id/mediaImage"
+                android:layout_below="@+id/link"
+                android:layout_marginTop="40dp"
+                android:layout_centerHorizontal="true"
+                tools:src="@mipmap/ic_launcher"
+                android:layout_marginBottom="10dp"/>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+</RelativeLayout>

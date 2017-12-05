@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Paul Hundal - NYTimes App</string>
+    <string name="waiting_message">Loading results..</string>
+    <string name="welcome_to_movies">Welcome to NY Times Movies Page</string>
+    <string name="get_movies">Get Movie List</string>
+    <string name="rated">Rated</string>
+    <string name="movie_title">Movie Title:</string>
+    <string name="by_line">Reviewed by</string>
+    <string name="publication_date">Date of publication:</string>
+    <string name="summary">Summary:</string>
+    <string name="not_rated">Rated: N/A</string>
+</resources>
