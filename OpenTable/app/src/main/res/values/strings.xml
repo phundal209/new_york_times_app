@@ -11,4 +11,5 @@
     <string name="not_rated">Rated: N/A</string>
     <string name="email_subject">Movie Review - NY Times</string>
     <string name="share_text">Share</string>
+    <string name="error_share">Error while sharing</string>
 </resources>

@@ -10,6 +10,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import example.pullrequest.com.api.MediaResponse
 import example.pullrequest.com.opentable.R
 import example.pullrequest.com.paulhundalproject.ui.IContentViewPresenter
@@ -62,9 +63,16 @@ open class ContentViewRecyclerAdapter(listOfMedia : MutableList<MediaResponse.Re
             mediaWrapper.displayMedia(mediaItem.multimedia.src, holder.mediaImage)
         }
 
-        val emailBody = mediaItem.display_title + "\n" + mediaItem.mpaa_rating + "\n" + mediaItem.summary_short + "\n" + Uri.parse(mediaItem.link.url)
-        holder?.shareText?.setOnClickListener {
-            presenter.share(emailBody)
+
+        // we do not want the app crashing if we cannot share
+        try {
+            val emailBody = mediaItem.display_title + "\n" + mediaItem.mpaa_rating + "\n" + mediaItem.summary_short + "\n" + Uri.parse(mediaItem.link.url)
+            holder?.shareText?.setOnClickListener {
+                presenter.share(emailBody)
+            }
+        } catch (ex : Exception) {
+            Log.e(ContentViewRecyclerAdapter::class.java.simpleName, "unable to share", ex)
+            Toast.makeText(context, context.getString(R.string.error_share), Toast.LENGTH_LONG).show()
         }
     }
 
