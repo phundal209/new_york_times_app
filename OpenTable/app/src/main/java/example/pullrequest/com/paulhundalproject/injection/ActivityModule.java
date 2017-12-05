@@ -9,8 +9,10 @@ import example.pullrequest.com.paulhundalproject.ui.ContentView;
 import example.pullrequest.com.paulhundalproject.ui.ContentViewPresenter;
 import example.pullrequest.com.paulhundalproject.ui.IContentViewPresenter;
 import example.pullrequest.com.paulhundalproject.ui.wrapper.IMediaRenderingWrapper;
+import example.pullrequest.com.paulhundalproject.ui.wrapper.IShareServiceWrapper;
 import example.pullrequest.com.paulhundalproject.ui.wrapper.ITextParser;
 import example.pullrequest.com.paulhundalproject.ui.wrapper.MediaRenderer;
+import example.pullrequest.com.paulhundalproject.ui.wrapper.ShareService;
 import example.pullrequest.com.paulhundalproject.ui.wrapper.TextParser;
 import example.pullrequest.com.services.service.IApiService;
 
@@ -49,8 +51,14 @@ public class ActivityModule {
 
     @Provides
     @PerActivity
-    IContentViewPresenter loginPresenter(IApiService apiService, IMediaRenderingWrapper mediaRenderingWrapper, ITextParser textParser) {
+    IShareServiceWrapper providesShareServiceWrapper() {
+        return new ShareService(activity);
+    }
+
+    @Provides
+    @PerActivity
+    IContentViewPresenter loginPresenter(IApiService apiService, IMediaRenderingWrapper mediaRenderingWrapper, ITextParser textParser, IShareServiceWrapper shareServiceWrapper) {
         return new ContentViewPresenter(activity, new ContentView(activity
-                .findViewById(android.R.id.content)), apiService, mediaRenderingWrapper, textParser);
+                .findViewById(android.R.id.content)), apiService, mediaRenderingWrapper, textParser, shareServiceWrapper);
     }
 }

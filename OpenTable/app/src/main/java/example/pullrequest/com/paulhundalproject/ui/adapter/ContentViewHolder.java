@@ -25,6 +25,7 @@ public class ContentViewHolder extends RecyclerView.ViewHolder {
     TextView summaryShort;
     TextView link;
     ImageView mediaImage;
+    TextView shareText;
 
     public ContentViewHolder(View itemView) {
         super(itemView);
@@ -38,5 +39,6 @@ public class ContentViewHolder extends RecyclerView.ViewHolder {
         summaryShort = (TextView) itemView.findViewById(R.id.summaryShort);
         link = (TextView) itemView.findViewById(R.id.link);
         mediaImage = (ImageView) itemView.findViewById(R.id.mediaImage);
+        shareText = (TextView) itemView.findViewById(R.id.shareText);
     }
 }

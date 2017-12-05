@@ -9,4 +9,6 @@
     <string name="publication_date">Date of publication:</string>
     <string name="summary">Summary:</string>
     <string name="not_rated">Rated: N/A</string>
+    <string name="email_subject">Movie Review - NY Times</string>
+    <string name="share_text">Share</string>
 </resources>

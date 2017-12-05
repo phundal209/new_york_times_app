@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import example.pullrequest.com.api.MediaResponse
 import example.pullrequest.com.opentable.R
+import example.pullrequest.com.paulhundalproject.ui.IContentViewPresenter
 import example.pullrequest.com.paulhundalproject.ui.wrapper.ITextParser
 import example.pullrequest.com.paulhundalproject.ui.wrapper.IMediaRenderingWrapper
 
@@ -19,12 +20,14 @@ import example.pullrequest.com.paulhundalproject.ui.wrapper.IMediaRenderingWrapp
  * Created by phundal on 12/1/17.
  */
 open class ContentViewRecyclerAdapter(listOfMedia : MutableList<MediaResponse.Results>, context : Context,
-                                      textWrapper : ITextParser, mediaWrapper : IMediaRenderingWrapper) : RecyclerView.Adapter<ContentViewHolder>() {
+                                      textWrapper : ITextParser, mediaWrapper : IMediaRenderingWrapper,
+                                      presenter : IContentViewPresenter) : RecyclerView.Adapter<ContentViewHolder>() {
 
     var listOfMedia = listOfMedia
     var context = context
     var textWrapper = textWrapper
     var mediaWrapper = mediaWrapper
+    var presenter = presenter
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ContentViewHolder?, position: Int) {
@@ -57,6 +60,11 @@ open class ContentViewRecyclerAdapter(listOfMedia : MutableList<MediaResponse.Re
         }
         if(holder?.mediaImage != null) {
             mediaWrapper.displayMedia(mediaItem.multimedia.src, holder.mediaImage)
+        }
+
+        val emailBody = mediaItem.display_title + "\n" + mediaItem.mpaa_rating + "\n" + mediaItem.summary_short + "\n" + Uri.parse(mediaItem.link.url)
+        holder?.shareText?.setOnClickListener {
+            presenter.share(emailBody)
         }
     }
 

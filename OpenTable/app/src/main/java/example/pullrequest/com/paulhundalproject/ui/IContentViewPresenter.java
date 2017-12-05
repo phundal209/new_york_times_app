@@ -7,4 +7,5 @@ import example.pullrequest.com.paulhundalproject.framework.IPresenter;
  */
 
 public interface IContentViewPresenter extends IPresenter<ContentView, Object> {
+    void share(String emailBody);
 }
